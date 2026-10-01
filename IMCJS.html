@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="UTF-8">
+                   
+           <title>
+                  Calcular IMC
+           </title>
+        
+      </head>
+<body>
+      <h3><i>COLOQUE SEU PESO E ALTURA</i></h3>
+      <form name="teste" method="post" action="testebutton.html">
+            <input type="number" placeholder="peso" id="val1" required>
+            <input type="number" placeholder="altura" id="val2" required>
+            <input type="button" id="calculadora" value="clique">
+             <div id="resposta">
+             <script>
+                     
+                     let peso = document.getElementById("val1");
+                     let altura = document.getElementById("val2");
+                     let calculadora = document.getElementById("calculadora");
+                     let answer = document.getElementById("resposta");
+                     
+                     
+                     function calculaimc() {                  
+                        let alt = parseFloat(altura.value);
+                        let pes = parseFloat(peso.value);
+                        let res = pes / (alt * alt);
+                        let devolutiva = "";
+                     
+                        if (!isNaN(pes) && !isNaN(alt)){
+                              if (res < 18.5){
+                              devolutiva = "Abaixo do peso.";
+                        }
+                        else if (res >= 18.5 && res<= 24.9){
+                              devolutiva = "Peso ideal.";
+                        }
+                        else if(res >= 25 && res <= 29.9){
+                              devolutiva = "Acima do peso.";
+                        }
+                        else if(res >= 30 && res <= 34.9){
+                              devolutiva = "Obesidade I.";
+                        }
+                        else if(res >= 35 && res <= 39.9){
+                              devolutiva = "Obesidade II.";
+                        }
+                        else if(res >= 40){
+                              devolutiva = "Obesidade III.";
+                        }
+                        else{
+                              devolutiva = "Valor inválido.";
+                        }
+                        }
+                        else{
+                              devolutiva = "Favor, insira um número!!!";
+                        }
+                        answer.innerHTML = "<h1>"+devolutiva+"</h1>";
+                     }
+		    calculadora.onclick = calculaimc;
+                 </script>
+            </div>
+       </form>
+      
+
+</body>
+
+</html>
