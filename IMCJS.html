@@ -2,19 +2,39 @@
 <html>
       <head>
             <meta charset="UTF-8">
+            <style>
+
+                              body{
+                                    background-color: FBFFAB;
+                                    margin: center;
+                              }
+                              .entrada{
+                              
+                                    
+                                    border-radius: 2px;
+                                    padding: 10px;
+                                    width: 10%;
+                                    height: 20px;
+                                    font-family: "Comic Sans MS";
+                                    text-align: center;
+                                    margin: auto;
+                              
+                              }
+            </style>
                    
            <title>
                   Calcular IMC
            </title>
-        
+         
       </head>
 <body>
       <h3><i>COLOQUE SEU PESO E ALTURA</i></h3>
       <form name="teste" method="post" action="testebutton.html">
-            <input type="number" placeholder="peso" id="val1" required>
-            <input type="number" placeholder="altura" id="val2" required>
+            <input type="number" placeholder="peso" id="val1" class="entrada" required>
+            <input type="number" placeholder="altura" id="val2" step="0.1" class="entrada" required>
             <input type="button" id="calculadora" value="clique">
              <div id="resposta">
+                 
              <script>
                      
                      let peso = document.getElementById("val1");
@@ -55,11 +75,35 @@
                         else{
                               devolutiva = "Favor, insira um número!!!";
                         }
-                        answer.innerHTML = "<h1>"+devolutiva+"</h1>";
+                        answer.innerHTML = `
+                        
+                        <h1><div class='estilodiv'>
+                              
+                        <style>
+                              .estilodiv{
+                                    background-color: #FFE3FA;
+                                    transition: 0.3s;
+                                    border-radius: 8px;
+                                    font-family: "Comic Sans MS";
+                                    text-align: center;
+                                    padding: 20%;
+
+                              }
+                              </style>
+                              
+                              
+                              ${devolutiva}</div></h1>`;
+
+
+
+
+                        
                      }
 		    calculadora.onclick = calculaimc;
                  </script>
+                 
             </div>
+            
        </form>
       
 
